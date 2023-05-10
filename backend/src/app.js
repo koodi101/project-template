@@ -7,6 +7,7 @@ const cors = require('kcors');
 const chats = require('./controllers/chats');
 const greeting = require('./controllers/greeting');
 const events = require('./controllers/events');
+const ips = require('./controllers/ips');
 
 // Create a new Koa instance for our API
 const app = new Koa();
@@ -37,6 +38,9 @@ publicRouter.get('/chats', chats.list);
 
 publicRouter.post('/events', events.create);
 publicRouter.get('/events', events.list);
+
+publicRouter.put('/ips', ips.update);
+publicRouter.get('/ips', ips.list);
 
 publicRouter.get('/greeting', greeting.greet);
 
