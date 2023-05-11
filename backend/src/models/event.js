@@ -8,7 +8,8 @@ const sequelize = require('./sequelize');
 // and humidity
 const Event = sequelize.define('events', {
   temperature: Sequelize.FLOAT,
-  humidity: Sequelize.FLOAT,
+    humidity: Sequelize.FLOAT,
+    tagId: Sequelize.STRING,
 }, {
   timestamps: true,
 });

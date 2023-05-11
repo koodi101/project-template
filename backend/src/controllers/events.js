@@ -4,30 +4,31 @@ const database = require('../database');
 // Lists Event entries in the database and returns them
 // in the response body with status code 200
 exports.list = async (ctx) => {
-  const options = {};
+    const options = {};
 
-  const events = await database.Event.findAll(options);
+    const events = await database.Event.findAll(options);
 
-  const response = {
-    results: events,
-  };
+    const response = {
+        results: events,
+    };
 
-  ctx.body = response;
+    ctx.body = response;
 };
 
 // Creates a Chat entry in the database and returns it
 // in the response body with status code 201.
 // Fails with 500 if message was not provided
 exports.create = async (ctx) => {
-  const { body } = ctx.request;
+    const { body } = ctx.request;
 
-  const { temperature, humidity } = body;
+    const { temperature, humidity, tagId } = body;
 
-  const event = await database.Event.create({
-    temperature,
-    humidity,
-  });
+    const event = await database.Event.create({
+        temperature,
+        humidity,
+        tagId,
+    });
 
-  ctx.body = event;
-  ctx.status = 201;
+    ctx.body = event;
+    ctx.status = 201;
 };
