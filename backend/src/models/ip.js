@@ -6,7 +6,7 @@ const sequelize = require('./sequelize');
 
 // Initialize the events table with two numerical fields: temperature
 // and humidity
-const Event = sequelize.define('events', {
+const Event = sequelize.define('ips', {
     hostname: {
         type: Sequelize.STRING,
         primaryKey: true,
